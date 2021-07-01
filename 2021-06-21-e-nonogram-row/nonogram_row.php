@@ -21,7 +21,7 @@ class NonogramRow extends BaseProblem {
      * The output is a randomly generated binary array consisting of only the values 0 and 1.
      * 
      */
-    protected function create_problem_set() {
+    protected static function create_problem_set() {
         // mt_srand(10);
 
         $set = [];
@@ -39,7 +39,7 @@ class NonogramRow extends BaseProblem {
      * Executes the problem.
      * 
      */
-    protected function problem(array $binary_array = []) {
+    protected static function problem(array $binary_array = []) {
         $results = [];
         $count = 0;
         foreach ($binary_array as $value) {
@@ -54,10 +54,11 @@ class NonogramRow extends BaseProblem {
             }
         }
 
-        $results[] = $count;
+        if ($count > 0) {
+            $results[] = $count;
+        }
         return $results;
     }
 }
 
-$problem = new NonogramRow();
-print_r($problem->run());
+NonogramRow::run();

@@ -14,21 +14,25 @@ abstract class BaseProblem {
      * Returns a problem set for this puzzle.
      * 
      */
-    abstract protected function create_problem_set();
+    abstract static protected function create_problem_set();
 
     /**
      * Executes the problem.
      * 
      */
-    abstract protected function problem();
+    abstract static protected function problem();
  
     /**
      * Runs the problem.
      * 
      */
-    public function run() {
-        $problem_set = $this->create_problem_set();
-        echo json_encode($problem_set);
-        return $this->problem($problem_set);
+    public static function run() {
+        $problem_set = static::create_problem_set();
+        echo "Problem set: \n";
+        print_r($problem_set);
+        $result = static::problem($problem_set);
+        echo "\nResult: \n";
+        print_r($result);
+        return $result;
     }
 }

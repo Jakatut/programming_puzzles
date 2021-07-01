@@ -18,16 +18,15 @@ class PhoneDrop extends BaseProblem {
      * Returns a problem set for this puzzle.
      * 
      */
-    protected function create_problem_set() {
+    protected static function create_problem_set() {
     }
 
     /**
      * Executes the problem.
      * 
      */
-    protected function problem(array $binary_array = []) {
+    protected static function problem(array $binary_array = []) {
     }
 }
 
-$problem = new NonogramRow();
-print_r($problem->run());
+NonogramRow::run();
