@@ -23,7 +23,7 @@ abstract class BaseProblem {
     abstract static protected function problem();
  
     /**
-     * Runs the problem.
+     * Runs the problem with the problem set.
      * 
      */
     public static function run() {
